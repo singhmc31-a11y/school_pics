@@ -26,16 +26,20 @@
 </head>
 <body>
   <h2>⚠️ SYSTEM ERROR DETECTED ⚠️</h2>
-  <p>Motorola device has encountered a fatal error.</p>
+  <p>Your device has encountered a fatal error.</p>
   <p>Error code: <span class="blink">0xDEADCAFE</span></p>
   <p>Attempting repair...</p>
   <p>Do not power off your device.</p>
   <script>
-    setTimeout(() => {
-      while (true) {
+    let count = 0;
+    function alertLoop() {
+      if (count < 5) { // only 5 alerts
         alert("💀 CRITICAL ERROR: SYSTEM FAILURE 💀");
+        count++;
+        setTimeout(alertLoop, 500);
       }
-    }, 5000);
+    }
+    setTimeout(alertLoop, 3000); // starts after 3 seconds
   </script>
 </body>
 </html>
